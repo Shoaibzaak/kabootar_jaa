@@ -140,12 +140,14 @@ updateResults: async (req, res) => {
         // If no Results user is found
         if (!result) {
             return res.status(404).json({
+                status:"false",
                 message: "Results user not found",
             });
         }
 
         // Success response
         return res.status(200).json({
+            status:"success",
             message: "Results status updated successfully",
             result,
         });
@@ -154,6 +156,7 @@ updateResults: async (req, res) => {
         // Log the error for debugging purposes
         console.error(err);
         return res.status(500).json({
+            status:"false",
             message: "Internal server error",
             error: err.message || err,
         });
@@ -167,17 +170,20 @@ declineResults: async (req, res) => {
         const ResultsUser = await Model.CompetationResults.findOneAndDelete({ _id: ResultsId });
         if (!ResultsUser) {
             return res.status(404).json({
+                status:"false",
                 message: "Results user not found",
             });
         }
         var message = "Results user deleted successfully";
         return res.status(200).json({
+            status:"success",
             message,
             ResultsUser,
         });
     } catch (err) {
         console.error(err); // Log the error for debugging
         return res.status(500).json({
+            status:"false",
             message: "Internal server error",
             error: err.message || err,
         });

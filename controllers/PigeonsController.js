@@ -140,6 +140,7 @@ updatePigeon: async (req, res) => {
         if (!result) {
             return res.status(404).json({
                 message: "Pigeon user not found",
+                status:"false"
             });
         }
 
@@ -147,6 +148,7 @@ updatePigeon: async (req, res) => {
         return res.status(200).json({
             message: "Pigeon status updated successfully",
             result,
+            status:"success"
         });
 
     } catch (err) {
@@ -155,6 +157,7 @@ updatePigeon: async (req, res) => {
         return res.status(500).json({
             message: "Internal server error",
             error: err.message || err,
+            status:"false"
         });
     }
 },
@@ -173,10 +176,12 @@ declinePigeon: async (req, res) => {
         return res.status(200).json({
             message,
             PigeonUser,
+            status:"success"
         });
     } catch (err) {
         console.error(err); // Log the error for debugging
         return res.status(500).json({
+            status:"false",
             message: "Internal server error",
             error: err.message || err,
         });
