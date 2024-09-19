@@ -50,8 +50,6 @@ router.route("/createCompetition").post(
   // Authentication.UserAuth,
   Controller.PigeonsController.createPigeon);
 
-  router.route("/createPigeon").post(
-    Controller.PigeonsController.createPigeon1);
 
 //update Pigeon
 router.route("/updateCompetation").put(

@@ -25,11 +25,10 @@ const competitionResultsModel = new Schema(
       type: [String], // Array of strings (URLs or paths to the images)
       default: [],
     },
-    pegions: [{
-      type: Schema.Types.ObjectId,
-      ref: "Pigeon", // Reference to the Pigeon model
-      required: true,
-    }]
+    pegions:{
+      type:Number,
+      default:""
+    }
   },
   {
     timestamps: true,

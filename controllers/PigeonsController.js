@@ -72,24 +72,6 @@ getPigeonUser: async (req, res) => {
         }
     }),
 
-    createPigeon1: catchAsync(async (req, res, next) => {
-        console.log("createPigeon is called");
-        try {
-            var PigeonData = req.body;
-                      var result = await PigeonHelper.createPigeon1(PigeonData);
-
-            var message = "Pigeon created successfully";
-            if (result == null) {
-                message = "Pigeon does not exist.";
-            }
-       
-            return responseHelper.success(res, PigeonData, message);
-        } catch (error) {
-            responseHelper.requestfailure(res, error);
-        }
-    }),
-
-
     // Get all Pigeon users with full details
     getAllPigeonUsers: catchAsync(async (req, res, next) => {
         console.log("Pigeondetails is called");
