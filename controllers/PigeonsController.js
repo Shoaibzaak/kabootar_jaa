@@ -139,25 +139,25 @@ updatePigeon: async (req, res) => {
         // If no pigeon user is found
         if (!result) {
             return res.status(404).json({
+                status:"false",
                 message: "Pigeon user not found",
-                status:"false"
             });
         }
 
         // Success response
         return res.status(200).json({
+            status:"Success",
             message: "Pigeon status updated successfully",
             result,
-            status:"success"
         });
 
     } catch (err) {
         // Log the error for debugging purposes
         console.error(err);
         return res.status(500).json({
+            status:"false",
             message: "Internal server error",
             error: err.message || err,
-            status:"false"
         });
     }
 },
@@ -174,9 +174,9 @@ declinePigeon: async (req, res) => {
         }
         var message = "Pigeon user deleted successfully";
         return res.status(200).json({
+            status:"Success",
             message,
             PigeonUser,
-            status:"success"
         });
     } catch (err) {
         console.error(err); // Log the error for debugging

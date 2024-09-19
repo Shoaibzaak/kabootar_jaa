@@ -147,7 +147,7 @@ updateResults: async (req, res) => {
 
         // Success response
         return res.status(200).json({
-            status:"success",
+            status:"Success",
             message: "Results status updated successfully",
             result,
         });
@@ -176,7 +176,7 @@ declineResults: async (req, res) => {
         }
         var message = "Results user deleted successfully";
         return res.status(200).json({
-            status:"success",
+            status:"Success",
             message,
             ResultsUser,
         });
